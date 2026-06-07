@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+
+permissions:
+  contents: write      
  
 jobs:
  
@@ -73,6 +76,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
  
       - name: Set Git Config
         run: |
